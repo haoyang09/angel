@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2017-2018 THL A29 Limited, a Tencent company. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in
  * compliance with the License. You may obtain a copy of the License at
  *
  * https://opensource.org/licenses/Apache-2.0
@@ -37,6 +37,8 @@ import com.tencent.angel.spark.ml.psf.embedding.NESlice.SliceResult
 import com.tencent.angel.spark.ml.psf.embedding.{Init, InitParam, NEModelRandomize, NESlice}
 import com.tencent.angel.spark.models.PSMatrix
 
+
+// NEModel is
 abstract class NEModel(numNode: Int,
                        dimension: Int,
                        numPart: Int,
@@ -142,6 +144,7 @@ abstract class NEModel(numNode: Int,
     }
   }
 
+  // sgd for a given partition
   def sgdForPartition(partitionId: Int,
                       iterator: Iterator[NEDataSet],
                       numPartitions: Int,
@@ -176,7 +179,16 @@ abstract class NEModel(numNode: Int,
     }
 
     PSContext.instance()
-
+    
+    /*
+    Slow:
+    a.zipWithIndex.map{ case (s,i) => myFn(s,i) }
+    Faster:
+    for (i <- a.indices) yield myFn(a(i),i)
+    { var i = -1; a.map{ s => i += 1; myFn(s,i) } }
+    Possibly fastest:
+    Array.tabulate(a.length){ i => myFn(a(i),i) }
+    */
     iterator.zipWithIndex.map { case (batch, index) =>
       sgdForBatch(partitionId, rand.nextInt(), batch, index)
     }

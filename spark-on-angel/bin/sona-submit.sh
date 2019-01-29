@@ -7,8 +7,8 @@
 # 4. set the following variables, ANGEL_HOME, ANGEL_HDFS_HOME, ANGEL_VERSION
 
 export ANGEL_VERSION=2.0.1
-export ANGEL_HOME=""
-export ANGEL_HDFS_HOME=""
+export ANGEL_HOME="/home/ubuntu/angel/"
+export ANGEL_HDFS_HOME="hdfs://ec2-35-155-171-170.us-west-2.compute.amazonaws.com:9000/angel/"
 
 
 scala_jar=scala-library-2.11.8.jar
@@ -30,7 +30,7 @@ for f in `echo $dist_jar | awk -F, '{for(i=1; i<=NF; i++){ print $i}}'`; do
     fi
 done
 echo SONA_ANGEL_JARS: $SONA_ANGEL_JARS
-export SONA_ANGEL_JARS 
+export SONA_ANGEL_JARS
 
 
 for f in `echo $local_jar | awk -F, '{for(i=1; i<=NF; i++){ print $i}}'`; do
@@ -49,9 +49,9 @@ command="$1 --driver-java-options=\"-XX:-DisableExplicitGC\" --conf spark.ps.jar
 is_first_parama=true
 is_jars=false
 for param in "$@"; do
-    if $is_first_param ; then 
+    if $is_first_param ; then
         is_first_param=false
-    else 
+    else
         if [[ $param == "--jars" ]]; then
             is_jars=true
         elif $is_jars && [[ $param != "\-\-*" ]] ; then

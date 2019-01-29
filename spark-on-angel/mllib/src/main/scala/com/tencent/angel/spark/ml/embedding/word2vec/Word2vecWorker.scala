@@ -23,6 +23,8 @@ class Word2vecWorker(numNode: Int,
                      numPart: Int,
                      numNodePerRow: Int = -1,
                      seed: Int) extends Serializable {
+  // NB: the model parameter is not built into the Word2VecModel
+  // and the sgdForBatch func is hard coded with cbow ?
 
   val maxNodePerRow: Int = 100000
 

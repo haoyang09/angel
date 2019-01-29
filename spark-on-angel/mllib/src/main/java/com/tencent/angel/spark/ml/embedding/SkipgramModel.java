@@ -9,7 +9,7 @@ import scala.Tuple2;
 import java.util.Arrays;
 import java.util.Random;
 
-public class CBowModel {
+public class SkipgramModel {
 
   private int window;
   private int negative;
@@ -18,7 +18,7 @@ public class CBowModel {
   private int dimension;
 
 
-  public CBowModel(int window, int negative, float alpha, int numNode, int dimension) {
+  public SkipgramModel(int window, int negative, float alpha, int numNode, int dimension) {
     this.window = window;
     this.negative = negative;
     this.alpha = alpha;
@@ -140,6 +140,7 @@ public class CBowModel {
             // Using the sigmoid value from the pre-computed table
             // float g = (label - FastSigmoid.sigmoid(f)) * alpha;
             float g = (label - prob) * alpha;
+
             // accumulate for the hidden layer
             for (int c = 0; c < dimension; c++) neu1e[c] += g * layers[c + l2];
             // update output layer

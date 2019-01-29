@@ -27,6 +27,8 @@ import com.tencent.angel.spark.ml.embedding.word2vec.Word2VecModel
 import com.tencent.angel.spark.ml.feature.{Features, SubSampling}
 import org.apache.spark.{SparkConf, SparkContext}
 
+import com.databricks.spark.avro._
+
 object Word2vecExample {
 
   def main(args: Array[String]): Unit = {
@@ -44,7 +46,7 @@ object Word2vecExample {
     sc.setLogLevel("ERROR")
     PSContext.getOrCreate(sc)
 
-    val input = "data/text8/text8.split.remapping"
+    val input = "data/text8/text8.split.head"
 
     val data = sc.textFile(input)
     data.cache()

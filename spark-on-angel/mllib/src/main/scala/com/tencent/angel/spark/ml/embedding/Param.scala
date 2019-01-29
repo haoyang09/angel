@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2017-2018 THL A29 Limited, a Tencent company. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in
  * compliance with the License. You may obtain a copy of the License at
  *
  * https://opensource.org/licenses/Apache-2.0
@@ -20,19 +20,19 @@ package com.tencent.angel.spark.ml.embedding
 
 class Param extends Serializable {
 
-  var partitionNum: Int = _
-  var windowSize: Int = _
-  var embeddingDim: Int = _
-  var negSample: Int = _
+  var partitionNum: Int = 10
+  var windowSize: Int = 10
+  var embeddingDim: Int = 300
+  var negSample: Int = 10
   var learningRate: Float = _
-  var batchSize: Int = _
-  var numEpoch: Int = _
+  var batchSize: Int = 10000
+  var numEpoch: Int = 10
   var maxIndex: Int = _
   var sampleRate: Float = _
   var numPSPart: Int = 1
   var modelPath: String = _
   var checkpointInterval: Int = Int.MaxValue
-  var order: Int = _
+  var order: Int = 2
   var nodesNumPerRow: Int = -1
   var numRowDataSet: Option[Long] = None
   var seed: Int = _

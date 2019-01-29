@@ -52,7 +52,6 @@ public class SkipgramModel extends EmbeddingModel {
             if (sentence_word == -1) continue;
 
             // Negative sampling
-
             int target;
             for (int d = 0; d < negative + 1; d ++) {
               if (d == 0) target = word;

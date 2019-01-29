@@ -6,10 +6,10 @@
 # 3. upload angel-<version>-bin directory to HDFS
 # 4. set the following variables, SPARK_HOME, ANGEL_HOME, ANGEL_HDFS_HOME, ANGEL_VERSION
 
-export SPARK_HOME=<SPARK_HOME>
-export ANGEL_HOME=<ANGEL_HOME>
-export ANGEL_HDFS_HOME=<ANGEL_HDFS_HOME>
-export ANGEL_VERSION=<ANGEL_VERSION>
+export SPARK_HOME=/usr/local/spark
+export ANGEL_HOME=/home/ubuntu/angel
+export ANGEL_HDFS_HOME="hdfs://ec2-35-155-171-170.us-west-2.compute.amazonaws.com:9000/angel/"
+export ANGEL_VERSION=2.0.1
 
 scala_jar=scala-library-2.11.8.jar
 external_jar=fastutil-7.1.0.jar,htrace-core-2.05.jar,sizeof-0.3.0.jar,kryo-shaded-4.0.0.jar,minlog-1.3.0.jar,sketches-core-0.8.1.jar,memory-0.8.1.jar,commons-pool-1.6.jar,netty-all-4.1.1.Final.jar,hll-1.6.0.jar
@@ -31,7 +31,7 @@ for f in `echo $dist_jar | awk -F, '{for(i=1; i<=NF; i++){ print $i}}'`; do
     fi
 done
 echo SONA_ANGEL_JARS: $SONA_ANGEL_JARS
-export SONA_ANGEL_JARS 
+export SONA_ANGEL_JARS
 
 
 unset SONA_SPARK_JARS

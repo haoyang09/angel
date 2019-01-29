@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2017-2018 THL A29 Limited, a Tencent company. All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in
  * compliance with the License. You may obtain a copy of the License at
  *
  * https://opensource.org/licenses/Apache-2.0
@@ -50,7 +50,9 @@ class Word2VecModel(numNode: Int,
   }
 
   def train(corpus: RDD[Array[Int]], param: Param, path: String): Unit = {
+    //
     psfUpdate(getInitFunc(corpus.getNumPartitions, numNode, maxLength, param.negSample, param.windowSize))
+    // data pipeline?
     val iterator = buildDataBatches(corpus, param.batchSize)
     train(iterator, param.negSample, param.numEpoch, param.learningRate, param.checkpointInterval, path)
   }

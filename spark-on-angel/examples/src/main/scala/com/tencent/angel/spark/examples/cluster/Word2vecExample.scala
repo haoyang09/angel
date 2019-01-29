@@ -44,8 +44,8 @@ object Word2vecExample {
 
     PSContext.getOrCreate(sc)
 
-    val input = params.getOrElse("input", "")
-    val output = params.getOrElse("output", "")
+    val input = params.getOrElse("input", "hdfs://ec2-35-155-171-170.us-west-2.compute.amazonaws.com:9000/tmp/word2vec/input/")
+    val output = params.getOrElse("output", "hdfs://ec2-35-155-171-170.us-west-2.compute.amazonaws.com:9000/tmp/word2vec/output/")
     val embeddingDim = params.getOrElse("embedding", "10").toInt
     val numNegSamples = params.getOrElse("negative", "5").toInt
     val windowSize = params.getOrElse("window", "10").toInt

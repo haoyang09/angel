@@ -32,6 +32,7 @@ import scala.util.Random
   * We here follow the method of Google word2vec code to determine the sampling rate.
   * The probability for a word ``w`` to be kept in the corpus is
   *    p(w) = (\sqrt(z(w)/0.001) + 1) * (0.001/z(w))
+  * see this blog: http://mccormickml.com/2017/01/11/word2vec-tutorial-part-2-negative-sampling/
   */
 object SubSampling {
 

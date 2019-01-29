@@ -1,0 +1,15 @@
+./angel-submit \
+--angel.app.submit.class com.tencent.angel.ml.core.graphsubmit.GraphRunner \
+--angel.train.data.path "hdfs://ec2-52-34-241-37.us-west-2.compute.amazonaws.com:9000/tmp/test/lr_data" \
+--angel.log.path "hdfs://ec2-52-34-241-37.us-west-2.compute.amazonaws.com:9000/tmp/test/log2" \
+--angel.save.model.path "hdfs://ec2-52-34-241-37.us-west-2.compute.amazonaws.com:9000/tmp/test/model2" \
+--action.type train  \
+--ml.model.class.name com.tencent.angel.ml.embedding.Word2VecModel \
+--ml.epoch.num 10  \
+--ml.data.type libsvm  \
+--ml.learn.rate=0.1 \
+--ml.feature.index.range 1024  \
+--angel.job.name LR_test  \
+--angel.am.memory.gb 2  \
+--angel.worker.memory.gb 2  \
+--angel.ps.memory.gb 6

@@ -27,7 +27,10 @@ public class Adjust extends UpdateFunc {
         int seed = param.seed;
         int order = 2;
 
+        // input sentences
         int[][] sentences = param.sentences;
+
+        // get server params
         int maxIndex = ServerWrapper.getMaxIndex();
         int maxLength = ServerWrapper.getMaxLength();
         int negative = ServerWrapper.getNegative();

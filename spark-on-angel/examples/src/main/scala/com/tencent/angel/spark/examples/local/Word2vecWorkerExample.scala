@@ -26,7 +26,7 @@ object Word2vecWorkerExample {
     sc.setLogLevel("ERROR")
     PSContext.getOrCreate(sc)
 
-    val input = "data/text8/text8.split.remapping"
+    val input = "data/text8/text8.split.head" //"data/text8/text8.split.remapping"
     val output = "model/"
 
     val data = sc.textFile(input)

@@ -9,7 +9,7 @@
 	    * 如果要运行PyAngel
     * Protobuf >= 2.5.0
 	    * 需与hadoop环境自带的protobuf版本保持一致。目前hadoop官方发布包使用的是2.5.0版本，所以推荐使用2.5.0版本，除非你自己使用更新的protobuf版本编译了hadoop
-
+      * protobuf 2.5.0 install instruction [here](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html) and [here](https://stackoverflow.com/questions/29797763/how-do-i-install-protobuf-2-5-on-arch-linux-for-compiling-hadoop-2-6-0-using-mav)
 2. **源码下载**
 
 	```git clone https://github.com/tencent/angel```
