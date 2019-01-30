@@ -8,7 +8,7 @@
 
 export SPARK_HOME=/usr/local/spark
 export ANGEL_HOME=/home/ubuntu/angel
-export ANGEL_HDFS_HOME="hdfs://ec2-35-155-171-170.us-west-2.compute.amazonaws.com:9000/angel/"
+export ANGEL_HDFS_HOME="hdfs://ec2-35-155-171-170.us-west-2.compute.amazonaws.com:9000/angel"
 export ANGEL_VERSION=2.0.1
 
 scala_jar=scala-library-2.11.8.jar
